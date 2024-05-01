@@ -13,7 +13,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if abs($Door.position.x - $Skye.position.x) < 50:
-		$Door/AnimatedSprite.play("open")
-	elif $Door/AnimatedSprite.animation == "open":
-		$Door/AnimatedSprite.play("close")
+	if $Doors/Door/AnimationPlayer.current_animation == "":
+		if abs($Doors.position.x - $Skye.position.x) < 100:
+			if $Doors/Door/AnimationPlayer.assigned_animation != "open":
+				$Doors/Door/AnimationPlayer.play("open")
+				$Doors/Door2/AnimationPlayer.play("open")
+		elif $Doors/Door/AnimationPlayer.assigned_animation == "open":
+			$Doors/Door/AnimationPlayer.play("close")
+			$Doors/Door2/AnimationPlayer.play("close")
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
