@@ -19,7 +19,10 @@ func _process(_delta):
 				$Doors/Door/AnimationPlayer.play("open")
 				$Doors/Door2/AnimationPlayer.play("open")
 		elif $Doors/Door/AnimationPlayer.assigned_animation == "open":
+			$Lookout2.hide()
 			$Doors/Door/AnimationPlayer.play("close")
 			$Doors/Door2/AnimationPlayer.play("close")
+	if $Doors/Door/AnimationPlayer.assigned_animation == "open" and $Doors/Door/AnimationPlayer.current_animation_position == 0.5:
+		$Lookout2.show()
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()

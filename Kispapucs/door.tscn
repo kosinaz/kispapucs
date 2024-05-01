@@ -37,7 +37,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=1]
 resource_name = "open"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -64,6 +64,7 @@ margin_bottom = 201.0
 rect_clip_content = true
 
 [node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 92, 0 )
 texture = ExtResource( 1 )
 centered = false
 
